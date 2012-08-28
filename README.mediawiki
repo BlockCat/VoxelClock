@@ -1,0 +1,14 @@
+== VoxelClock ==
+
+A common issue when working with a large community from all over the world
+is time zones. Members need to estimate and do more work then needed for
+collaborative development. Thus, we created VoxelTime. Time that is relative to
+the current server you're playing on, which is the same across the entire
+world, no matter what location.
+---
+Currently the plugin was just created to implemenet the solution, but
+more awesome features are being planned to give even better & useful
+features for time. 
+
+Anyone interested in helping with the upcoming development is more then
+welcome to contact '''thedeadlybutter'''.
