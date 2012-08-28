@@ -1,7 +1,0 @@
-name: VoxelClock
-main: com.thevoxelbox.voxelclock.VoxelClock
-version: 1.0
-commands:
-  clock:
-    description: Gives the player the current VoxelTime
-    usage: /clock
