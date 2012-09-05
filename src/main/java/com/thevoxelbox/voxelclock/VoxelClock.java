@@ -23,18 +23,19 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
     
     @Override
     public void onEnable(){
+        c = Calendar.getInstance();
         getServer().getPluginManager().registerEvents(this, this);
     }
     
     public String getFormattedTime(){
-        return df.format(Calendar.getInstance().getTime());
+        return df.format(c.getTime());
     }
     
     public String getFormattedTime(int h, int m, int s){
-        Calendar.getInstance().add(Calendar.HOUR, h);
-        Calendar.getInstance().add(Calendar.MINUTE, m);
-        Calendar.getInstance().add(Calendar.SECOND, s);
-        return df.format(Calendar.getInstance().getTime());
+        c.add(Calendar.HOUR, h);
+        c.add(Calendar.MINUTE, m);
+        c.add(Calendar.SECOND, s);
+        return df.format(c.getTime());
     }
     
     @Override
@@ -67,7 +68,7 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
                 }
                 
                 cs.sendMessage(ChatColor.GOLD + "[VoxelTime] " + ChatColor.DARK_AQUA + getFormattedTime(hourSkip, minuteSkip, secondSkip));
-                Calendar.getInstance().clear();
+                c.clear();
                 
             }
             
