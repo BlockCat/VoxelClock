@@ -1,6 +1,6 @@
 name: VoxelClock
 main: com.thevoxelbox.voxelclock.VoxelClock
-version: 1.1
+version: 1.2
 commands:
   clock:
     description: Gives the player the current VoxelTime
