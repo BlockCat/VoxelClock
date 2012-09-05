@@ -7,13 +7,16 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
  * @author Butters
  */
-public class VoxelClock extends JavaPlugin implements CommandExecutor{
+public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener {
     
     private static final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private Calendar c;
@@ -30,5 +33,11 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor{
         }
        return false; 
     }
+    
+    @EventHandler
+    public void onJoin(PlayerJoinEvent event){
+        event.getPlayer().sendMessage(ChatColor.GOLD + "[VoxelTime] " + ChatColor.DARK_AQUA + getFormattedTime());
+    }
+    
     
 }
