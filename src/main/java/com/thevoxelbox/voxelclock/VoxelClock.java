@@ -21,6 +21,11 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
     private static final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private Calendar c;
     
+    @Override
+    public void onEnable(){
+        getServer().getPluginManager().registerEvents(this, this);
+    }
+    
     public String getFormattedTime(){
         return df.format(Calendar.getInstance().getTime());
     }
