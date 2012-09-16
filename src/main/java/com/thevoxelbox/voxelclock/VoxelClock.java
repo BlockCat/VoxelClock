@@ -42,7 +42,7 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
          config.addDefault("LoginMessage.delay", 2);
          config.addDefault("LoginMessage.message", "PSA: THIS IS IMPORTANT");
          
-        config.options().copyDefaults();
+        config.options().copyDefaults(true);
         saveConfig();
         
         usingDelayedBoradcast = config.getBoolean("LoginMessage.enabled");
