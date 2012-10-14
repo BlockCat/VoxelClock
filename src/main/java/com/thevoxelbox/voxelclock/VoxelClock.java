@@ -79,11 +79,6 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
         return df.format(c.getTime());
     }
     
-    public String getFormattedTime(int h, int m, int s){
-        c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), h, m, s);
-        return df.format(c.getTime());
-    }
-    
     @Override
     public boolean onCommand(CommandSender cs, Command cmnd, String string, String[] args) {
         if(cmnd.getName().equalsIgnoreCase("clock")){
@@ -95,29 +90,6 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
             if(args.length == 0){
                 cs.sendMessage(ChatColor.RED + "Please enter a time to lookup");
             }
-            else{
-                
-                int hourSkip = 0;
-                int minuteSkip = 0;
-                int secondSkip = 0;
-                
-                for(int x = 0; x < args.length; x++){
-                    if(args[x].startsWith("h")){
-                        hourSkip = Integer.parseInt(args[x].replace("h", ""));
-                    }
-                    else if(args[x].startsWith("m")){
-                        minuteSkip = Integer.parseInt(args[x].replace("m", ""));
-                    }
-                    else if(args[x].startsWith("s")){
-                        secondSkip = Integer.parseInt(args[x].replace("s", ""));
-                    }
-                }
-                
-                cs.sendMessage(ChatColor.GOLD + "[VoxelTime] " + ChatColor.DARK_AQUA + getFormattedTime(hourSkip, minuteSkip, secondSkip));
-                c = Calendar.getInstance();
-                
-            }
-            
             return true;
         }
        return false; 
