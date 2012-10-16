@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -23,7 +24,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener {
     
     private static final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private Calendar c;
     
     private List<ClockPlayer> loginQue;
     
@@ -33,7 +33,6 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
     
     @Override
     public void onEnable(){
-        c = Calendar.getInstance();
         getServer().getPluginManager().registerEvents(this, this);
         loginQue = new ArrayList<ClockPlayer>();
         
@@ -76,7 +75,7 @@ public class VoxelClock extends JavaPlugin implements CommandExecutor, Listener 
     }
     
     public String getFormattedTime(){
-        return df.format(c.getTime());
+        return df.format(new Date());
     }
     
     @Override
